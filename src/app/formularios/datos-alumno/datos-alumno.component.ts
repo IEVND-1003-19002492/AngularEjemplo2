@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-datos-alumno',
@@ -11,14 +11,18 @@ export class DatosAlumnoComponent implements OnInit {
   
   ngOnInit(): void {
     this.alumnos=new FormGroup({
-      matricula: new FormControl(''),
-      nombre: new FormControl(''),
-      apaterno: new FormControl(''),
-      amatereno: new FormControl(''),
-      correo: new FormControl(''),
+      matricula: new FormControl('', [Validators.required,Validators.minLength(3)]),
+      nombre: new FormControl('', [Validators.required,Validators.minLength(3)]),
+      apaterno: new FormControl('', [Validators.required,Validators.minLength(3)]),
+      amaterno: new FormControl('', [Validators.required,Validators.minLength(3)]),
+      correo: new FormControl('', [Validators.required,Validators.minLength(3)]),
     });
   }
   onSubmit(){
-    
+    console.log(this.alumnos.controls['matricula'].value)
+    console.log(this.alumnos.controls['nombre'].value)
+    console.log(this.alumnos.controls['apaterno'].value)
+    console.log(this.alumnos.controls['amaterno'].value)
+    console.log(this.alumnos.controls['correo'].value)
   }
 }

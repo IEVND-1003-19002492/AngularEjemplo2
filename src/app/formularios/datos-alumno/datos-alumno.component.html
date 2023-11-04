@@ -1,27 +1,43 @@
-<p>datos-alumno works!</p>
+
 <div class="row">
     <div class="col-6">
-        <form>
+        <form [formGroup]="alumnos" (ngSubmit)="onSubmit()">
             <div class="mb-3">
                 <label for="matricula" class="form-label">Matricula</label>
-                <input type="text" placeholder="Matricula" class="form-control">
+                <input type="text" id="matricula" name="matricula" placeholder="Matricula" formControlName="matricula" class="form-control" required>
+                <div *ngIf="alumnos.get('matricula')?.touched && alumnos.get('matricula')?.errors?.['required']" class="alert alert-danger">
+                    Matricula requerida
+                </div>
             </div>
             <div class="mb-3">
                 <label for="nombre" class="form-label">Nombre</label>
-                <input type="text" placeholder="Nombre" class="form-control">
+                <input type="text" id="nombre" name="nombre" placeholder="Nombre" formControlName="nombre" class="form-control">
+                <div *ngIf="alumnos.get('matricula')?.touched && alumnos.get('matricula')?.errors?.['required']" class="alert alert-danger">
+                    Nombre requerido
+                </div>
             </div>
             <div class="mb-3">
                 <label for="amaterno" class="form-label">Apellido Materno</label>
-                <input type="text" placeholder="amaterno" class="form-control">
+                <input type="text" id="amaterno" name="amaterno" placeholder="amaterno" formControlName="amaterno" class="form-control">
+                <div *ngIf="alumnos.get('matricula')?.touched && alumnos.get('matricula')?.errors?.['required']" class="alert alert-danger">
+                    Apellido requerido
+                </div>
             </div>
             <div class="mb-3">
                 <label for="apaterno" class="form-label">Apellido Paterno</label>
-                <input type="text" placeholder="apaterno" class="form-control">
+                <input type="text" id="apaterno" name="apaterno" placeholder="apaterno" formControlName="apaterno" class="form-control">
+                <div *ngIf="alumnos.get('matricula')?.touched && alumnos.get('matricula')?.errors?.['required']" class="alert alert-danger">
+                    Apellido requerido
+                </div>
             </div>
             <div class="mb-3">
                 <label for="correo" class="form-label">Correo</label>
-                <input type="text" placeholder="correo" class="form-control">
+                <input type="text" id="correo" name="correo" placeholder="correo" formControlName="correo" class="form-control">
+                <div *ngIf="alumnos.get('matricula')?.touched && alumnos.get('matricula')?.errors?.['required']" class="alert alert-danger">
+                    Correo requerido
+                </div>
             </div>
+            <button class="btn btn-primary" type="submit">Agregar</button>
         </form>
     </div>
     <div class="col-6"></div>
